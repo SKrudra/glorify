@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+    
 export class AppComponent {
   title = 'web-app';
 }
