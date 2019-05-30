@@ -17,6 +17,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+		<docker.image.prefix>springio</docker.image.prefix>
 	</properties>
 
 	<dependencies>
@@ -38,12 +39,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.12</version><!--$NO-MVN-MAN-VER$-->		    
+		    <version>8.0.12</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -53,7 +54,7 @@
 		    <version>1.18.6</version><!--$NO-MVN-MAN-VER$-->
 		    <scope>provided</scope>
 		</dependency>
-		
+
 		 <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -78,6 +79,36 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<version>1.4.9</version>
+					<configuration>
+							<repository>${docker.image.prefix}/${project.artifactId}</repository>
+					</configuration>
+			</plugin>
+			<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-dependency-plugin</artifactId>
+		    <executions>
+		        <execution>
+		            <id>unpack</id>
+		            <phase>package</phase>
+		            <goals>
+		                <goal>unpack</goal>
+		            </goals>
+		            <configuration>
+		                <artifactItems>
+		                    <artifactItem>
+		                        <groupId>${project.groupId}</groupId>
+		                        <artifactId>${project.artifactId}</artifactId>
+		                        <version>${project.version}</version>
+		                    </artifactItem>
+		                </artifactItems>
+		            </configuration>
+		        </execution>
+		    </executions>
 			</plugin>
 		</plugins>
 	</build>
