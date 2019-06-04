@@ -3,6 +3,7 @@ package com.microservice.loginregistration.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -15,7 +16,7 @@ public class LoginRegistrationController {
 	@Autowired
 	LoginRegistrationService loginRegistrationService;
 	
-	@PostMapping(value="/api/login")
+	@GetMapping(value="/api/login")
 	public ResponseEntity<?> validateLogin(@RequestBody LoginRegistrationEntity login) {
 		String email = login.getEmail();
 		String password = login.getPassword();
@@ -23,4 +24,9 @@ public class LoginRegistrationController {
 		return ResponseEntity.ok(userId);
 	}
 	
+	@PostMapping(value="/api/registernow")
+	public ResponseEntity<LoginRegistrationEntity> registerNow(@RequestBody LoginRegistrationEntity login) {
+		LoginRegistrationEntity loginEntity = loginRegistrationService.registerNow(login);
+		return ResponseEntity.ok(loginEntity);
+	}
 }
