@@ -18,8 +18,8 @@ export class CommentsComponent implements OnInit {displayedColumns: string[] = [
   dataSource: MatTableDataSource<any>;
    // dataSource =  new MatTableDataSource<CommentData>();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor() {
     this.dataSource = new MatTableDataSource(COMMENTS);
