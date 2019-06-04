@@ -1,0 +1,13 @@
+div{
+	margin: 20px 20px 20px 20px;
+	padding:20px;
+	border:1px solid black;
+	width:95%;
+	color:#3366cc;
+}
+
+h1{
+	align-content: center;
+	float: none;
+	position: relative;	
+}

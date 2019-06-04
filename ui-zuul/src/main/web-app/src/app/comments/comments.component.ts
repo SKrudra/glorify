@@ -6,7 +6,7 @@ export interface CommentData {
 }
 
 const COMMENTS: CommentData[] = [
-  {comment: 'Yahoo'}, {comment:'YALAHOO'}
+  {comment: 'Yahoo'}, {comment:'google'}, {comment:'microsoft'}, {comment:'facebook'}, {comment:'instagram'}, {comment:'whatsApp'}, {comment:'twitter'}
 ];
 
 @Component({
