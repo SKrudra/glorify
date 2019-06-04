@@ -1,0 +1,11 @@
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let state of userProfiles | async" [value]="state.fname">
+          <span>{{state.fname}}</span> |
+          <small>Population: {{state.lname}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
