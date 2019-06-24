@@ -5,4 +5,8 @@ export class UserProfile{
     username: string;
     email: string;
     password: string;
+    age: number;
+    gender: String;
+    follower:String;
+    following:UserProfile[];
 }

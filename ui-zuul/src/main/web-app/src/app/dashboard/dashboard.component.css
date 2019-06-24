@@ -11,3 +11,10 @@ h1{
 	float: none;
 	position: relative;	
 }
+
+#profilePic{
+	background-size: contain;
+    border-radius:50% 50% 50% 50%;
+    width:50px;
+    height:50px;
+}

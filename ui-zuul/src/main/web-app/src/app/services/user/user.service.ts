@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {UserProfile} from '../userProfile';
 import { FormGroup } from '@angular/forms';
 import {Router} from '@angular/router';
 import { Observable } from 'rxjs';
+import { UserProfile } from 'src/app/userprofile';
 
 
 @Injectable({
@@ -19,14 +19,14 @@ export class UserService {
    return this.http.post<UserProfile>(url,form.value);
   }
 
-  getUser():UserProfile{
+  getUser(userName: string):UserProfile{
     this.userProfile.username = "shivam";
-    this.userProfile.fname = ("satyam").toUpperCase();
+    this.userProfile.fname = ("satyam");
     this.userProfile.lname = "shivam";
     return this.userProfile;
   }
 
   getAllUser():Observable<any>{
-    return this.http.get<UserProfile>("http://localhost:8080/api/userprofile/getAllUserProfiles");
+    return this.http.get<UserProfile>("http://localhost:8001/api/user-profile/userprofile/getAllUserProfiles");
   }
 }

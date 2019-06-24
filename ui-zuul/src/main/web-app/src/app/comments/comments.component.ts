@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {CommentDetails} from '../commentdetails';
 
 export interface CommentData {
   comment: string;
@@ -8,7 +9,7 @@ export interface CommentData {
 const COMMENTS: CommentData[] = [
   {comment: 'Yahoo'}, {comment:'google'}, {comment:'microsoft'}, {comment:'facebook'}, {comment:'instagram'}, {comment:'whatsApp'}, {comment:'twitter'}
 ];
-
+   commentDetails:CommentDetails;
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',

@@ -3,8 +3,7 @@
 </mat-toolbar>
 
 <h3>Get Anonymous feedbacks from your friends and colleagues</h3>
-
-<form class="login-form" [formGroup]="form1" (submit)="login()">
+<form class="login-form" [formGroup]="loginform" (submit)="login()">
 	<h1> Login </h1>
   <mat-form-field>
     <input matInput placeholder="username" formControlName="username">
@@ -20,6 +19,5 @@
     </nav>
   </button>
 </form>
-
 <router-outlet></router-outlet>
 

@@ -5,6 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommentsComponent } from './comments/comments.component';
 import { SearchComponent } from './search/search.component';
 import { RegisterComponent } from './register/register.component';
+import { UserSearchComponent } from './user-search/user-search.component';
+import { EditprofileComponent} from './editprofile/editprofile.component';
 
 const routes: Routes = [  
     {path: 'login', component:LoginComponent},
@@ -14,7 +16,9 @@ const routes: Routes = [
         {path: 'comments', component: CommentsComponent},
         {path: 'search', component: SearchComponent}
       ]
-    }
+    },
+    {path: 'searchUserProfile', component: UserSearchComponent},
+    {path: 'editProfile/:username', component: EditprofileComponent}
 ];
 
 @NgModule({

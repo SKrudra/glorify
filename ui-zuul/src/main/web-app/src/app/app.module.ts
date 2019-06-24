@@ -16,14 +16,17 @@ import { BasicLayoutComponent } from './basic-layout/basic-layout.component';
 import { RegisterComponent } from './register/register.component';
 import { ResponceMessageComponent } from './responce-message/responce-message.component';
 import { UserProfile } from './userprofile';
-import { UserService } from './services/user.service';
+import {UserService} from './services/user/user.service';
 import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
   MatRippleModule
 } from '@angular/material';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { UserSearchComponent } from './user-search/user-search.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { WritecommentComponent } from './writecomment/writecomment.component';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatAutocompleteModule
   ],
   declarations: [
     AppComponent,
@@ -41,7 +45,10 @@ import {
     SearchComponent,
     BasicLayoutComponent,
     RegisterComponent,
-    ResponceMessageComponent
+    ResponceMessageComponent,
+    UserSearchComponent,
+    EditprofileComponent,
+    WritecommentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,7 @@ import {
     NoopAnimationsModule,
     FormsModule, 
     ReactiveFormsModule,
+    MatAutocompleteModule,
     HttpClientModule
   ],
   providers: [UserService,UserProfile],

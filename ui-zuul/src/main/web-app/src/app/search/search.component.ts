@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfile } from '../userprofile';
-import {UserService} from './../services/user.service';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {UserService} from './../services/user/user.service';
+import { MatAutocompleteSelectedEvent } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-search',
@@ -14,31 +14,23 @@ import {map, startWith} from 'rxjs/operators';
 export class SearchComponent implements OnInit {
 
   public userProfiles: UserProfile[];
-  stateCtrl = new FormControl();
-  filteredStates: Observable<UserProfile[]>;
-  constructor(private userService: UserService) { 
-
-    this.filteredStates = this.stateCtrl.valueChanges
-        .pipe(
-          startWith(''),
-          map(state => state ? this._filterStates(state) : this.userProfiles.slice())
-        );
-  }
-
-  ngOnInit() {
-
+ 
+  constructor(private http: HttpClient,
+    private router: Router,private userService: UserService) { 
     this.userService.getAllUser().subscribe(
-        data =>
-        {
-          this.userProfiles = data;
-        }
-        );
+      data =>
+      {
+        this.userProfiles = data;
+      }
+      );
   }
-    
-    private _filterStates(value: string): UserProfile[] {
-      const filterValue = value.toLowerCase();
-  
-      return this.userProfiles.filter(state => state.fname.toLowerCase().indexOf(filterValue) === 0);
-    }
+  ngOnInit() {
+  }
 
+  onSelectionChanged(event: MatAutocompleteSelectedEvent) {
+    //console.log(event.option.value);
+    alert(event.option.value);
+    this.userService.userProfile.username = event.option.value;
+    this.router.navigate(['/searchUserProfile']);
+  }
 }
