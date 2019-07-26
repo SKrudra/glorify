@@ -19,8 +19,7 @@ export class CommentsComponent implements OnInit {displayedColumns: string[] = [
   dataSource: MatTableDataSource<any>;
    // dataSource =  new MatTableDataSource<CommentData>();
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
 
   constructor() {
     this.dataSource = new MatTableDataSource(COMMENTS);
@@ -28,8 +27,8 @@ export class CommentsComponent implements OnInit {displayedColumns: string[] = [
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {

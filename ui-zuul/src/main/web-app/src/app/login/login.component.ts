@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
          return this.userService.login("http://localhost:8001/api/user-profile/userprofile/getUserProfileByName",this.loginform)
          .subscribe(
          data => { 
-        this.userService.userProfile = data;
+        //this.userService.userProfile = data;
+        console.log(data);
         this.router.navigate(['/dashboard']);
         }, error => {
           console.log("Error", error);
