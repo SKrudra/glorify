@@ -71,14 +71,15 @@ public class UserProfileController {
 	
 	@CrossOrigin
 	@PostMapping("/getUserProfileByName")
-	public ResponseEntity<UserProfile>getUserProfileByName(@RequestBody UserProfile userProfile){
-		UserProfile userProfileDB = userProfileRepo.findTopByUserName(userProfile.getUsername());
+	public ResponseEntity<Integer>getUserProfileByName(@RequestBody UserProfile userProfile){
+		return new ResponseEntity<Integer>(-1, HttpStatus.ACCEPTED);
+		/*UserProfile userProfileDB = userProfileRepo.findTopByUserName(userProfile.getUsername());
 		if(userProfileDB !=null && userProfileDB.getPassword().equals(userProfile.getPassword())) {
 			return new ResponseEntity<UserProfile>(userProfileDB, HttpStatus.OK);
 
 		}
 		return new ResponseEntity<UserProfile>(userProfileDB, HttpStatus.NOT_FOUND);
-		
+		*/
 	}
 	@CrossOrigin
 	@DeleteMapping("/deleteUserProfile")
