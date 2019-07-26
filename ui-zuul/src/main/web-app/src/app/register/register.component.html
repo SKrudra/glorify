@@ -1,0 +1,27 @@
+<form class="registration-form" [formGroup]="form" (submit)="register()">
+	<h1> New Registeration </h1>
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="fname">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="lname">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="username">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input type="file" (change)="onFileChange($event)" />
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" formControlName="password">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Email" type ="email" formControlName="email">
+  </mat-form-field><br>
+      <button mat-raised-button type="submit">Register</button>
+      <button mat-raised-button type="button">
+          <nav>
+            <a routerLink="/login">login</a>
+          </nav>
+        </button>
+</form>

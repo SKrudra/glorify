@@ -1,0 +1,33 @@
+<p>
+  Edit Page {{userName}}
+</p>
+<h1>Upvote Count</h1>
+<h1>Downvote Count</h1>
+<h1>Followers</h1>
+<h1>Follow</h1>
+<form class="editProfile-form" [formGroup]="form" (submit)="register()">
+  <mat-form-field>
+    <input matInput placeholder="user Id" formControlName="id"/>
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="fname">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="lname">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="username">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" formControlName="password">
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Email" type ="email" formControlName="email">
+  </mat-form-field><br>
+      <button mat-raised-button type="submit">Upadate</button>
+      <button mat-raised-button type="button">
+          <nav>
+            <a routerLink="/dashboard">login</a>
+          </nav>
+        </button>
+</form>

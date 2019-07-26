@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from './../services/user/user.service';
+import { UserProfile } from '../userProfile';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+   public userProfile: UserProfile;
+  constructor(public userService: UserService) {
+    this.userProfile = this.userService.userProfile;
+    
+   }
 
   ngOnInit() {
+    //this.userProfile = this.userService.getUser();
   }
 
 }
