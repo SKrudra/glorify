@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {CommentDetails} from '../commentdetails';
 
 export interface CommentData {
   comment: string;
 }
 
 const COMMENTS: CommentData[] = [
-  {comment: 'Yahoo'}, {comment:'YALAHOO'}
+  {comment: 'Yahoo'}, {comment:'google'}, {comment:'microsoft'}, {comment:'facebook'}, {comment:'instagram'}, {comment:'whatsApp'}, {comment:'twitter'}
 ];
-
+   commentDetails:CommentDetails;
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -18,8 +19,8 @@ export class CommentsComponent implements OnInit {displayedColumns: string[] = [
   dataSource: MatTableDataSource<any>;
    // dataSource =  new MatTableDataSource<CommentData>();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor() {
     this.dataSource = new MatTableDataSource(COMMENTS);

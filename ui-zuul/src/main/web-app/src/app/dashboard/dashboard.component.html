@@ -1,5 +1,6 @@
-<p>
-  dashboard works!
-</p>
-
-<app-comments></app-comments>
+<div>
+    <div><h1>Welcome to Glorify Dashboard  <a [title]="userProfile.fname + ' details'" [routerLink]="['/editProfile', userProfile.username]">{{userProfile.fname}} {{userProfile.lname}}</a></h1><img src="assets/profile.jpg"  id ="profilePic"> </div>
+    <app-search></app-search>
+    <app-comments></app-comments>
+    <router-outlet></router-outlet>
+</div>

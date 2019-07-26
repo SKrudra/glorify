@@ -25,4 +25,9 @@ public class LoginRegistrationService {
 		return -1L;
 	}
 	
+	public LoginRegistrationEntity registerNow(LoginRegistrationEntity loginEntity) {
+		LoginRegistrationEntity opEntity =  loginRegistrationRepository.save(loginEntity);
+		return opEntity ;
+	}
+	
 }
