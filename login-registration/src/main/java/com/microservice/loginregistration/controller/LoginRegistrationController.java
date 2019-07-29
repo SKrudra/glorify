@@ -24,12 +24,9 @@ public class LoginRegistrationController {
 
 	@PostMapping(value="/login")
 	public ResponseEntity<?> validateLogin(@RequestBody LoginRegistrationEntity login) {
-		/*String email = login.getEmail();
+		String email = login.getEmail();
 		String password = login.getPassword();
-		Long userId = loginRegistrationService.validateCredentials(email, password);
-		return ResponseEntity.ok(userId)*/;
-		System.out.println(login.getEmail());
-		return ResponseEntity.ok(login);
+		return  ResponseEntity.ok(loginRegistrationService.validateCredentials(email, password));
 	}
 	
 	@PostMapping(value="/registernow")

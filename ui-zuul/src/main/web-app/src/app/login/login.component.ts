@@ -3,8 +3,8 @@ import {FormControl, Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import { UserProfile } from '../userprofile';
-import {UserService} from './../services/user/user.service';
-  
+import {AuthService} from './../services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -17,28 +17,27 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    public userService:UserService
+    public authService:AuthService,
+    private snackbar: MatSnackBar
     ) { 
-      this.userService.userProfile = this.userProfile;
    }
   
   private loginform: FormGroup;
-  private userProfile: UserProfile;
   
 
   ngOnInit() {
       this.loginform= this.fb.group({
-          'username' : new FormControl('', Validators.required),
+          'email' : new FormControl('', Validators.required),
           'password' : new FormControl('', Validators.required)
       });   
   }
   
     login() {
-        return this.userService.login("http://localhost:8001/api/login-registration/validation/login",this.loginform)
+        return this.authService.login("http://localhost:8001/api/login-registration/validation/login",this.loginform)
          .subscribe(
             data => { 
-            console.log(data);
-            this.router.navigate(['/dashboard']);
+            if(data != -1) this.router.navigate(['/dashboard']);
+            else this.snackbar.open('Login failed', 'Failed', { duration: 5000, });
             }, error => {
               console.log("Error", error);
           });
