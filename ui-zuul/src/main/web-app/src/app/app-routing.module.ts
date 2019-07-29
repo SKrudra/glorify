@@ -8,7 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { EditprofileComponent} from './editprofile/editprofile.component';
 
-const routes: Routes = [  
+const routes: Routes = [
+    {path: '', component:LoginComponent},  
     {path: 'login', component:LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path : 'dashboard', component: DashboardComponent,
