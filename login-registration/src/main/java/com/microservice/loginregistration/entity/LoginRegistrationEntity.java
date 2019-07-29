@@ -16,12 +16,6 @@ public @Data class LoginRegistrationEntity {
 	@Column(name="ID")
 	private Long id;
 	
-	@Column(name="FIRST_NAME")
-	private String firstName;
-	
-	@Column(name="LAST_NAME")
-	private String lastName;
-	
 	@Column(name="EMAIL")
 	private String email;
 	
