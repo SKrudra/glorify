@@ -16,6 +16,7 @@ export class UserService {
   }
 
   login(url:string,form:FormGroup): Observable<UserProfile> { 
+    console.log(form.value);
    return this.http.post<UserProfile>(url,form.value);
   }
 

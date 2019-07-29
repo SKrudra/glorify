@@ -17,7 +17,6 @@ public class Profile1Application {
 	            @Override
 	            public void addCorsMappings(CorsRegistry registry) {
 	            	registry.addMapping("*/api/*").allowedOrigins("http://localhost:4200").allowedMethods("GET","POST","PUT","DELETE");
-	                //registry.addMapping("/userprofile/createUser").allowedOrigins("http://localhost:4200");
 	            }
 	        };
 	    }
