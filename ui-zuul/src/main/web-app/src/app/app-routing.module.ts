@@ -7,6 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { RegisterComponent } from './register/register.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { EditprofileComponent} from './editprofile/editprofile.component';
+import { AuthGuard } from './auth-guards/auth.guard';
 
 const routes: Routes = [
     {path: '', component:LoginComponent},  
@@ -16,7 +17,8 @@ const routes: Routes = [
       children: [
         {path: 'comments', component: CommentsComponent},
         {path: 'search', component: SearchComponent}
-      ]
+      ], 
+      canActivate:[AuthGuard]
     },
     {path: 'searchUserProfile', component: UserSearchComponent},
     {path: 'editProfile/:username', component: EditprofileComponent}
