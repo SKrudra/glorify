@@ -1,0 +1,12 @@
+<mat-card *ngIf="loginProfile">
+  <mat-card-title>{{loginProfile.firstName}} {{loginProfile.lastName}}</mat-card-title>
+  <mat-card-subtitle>{{loginProfile.bio}}</mat-card-subtitle>
+  <mat-card-subtitle>Age {{loginProfile.age}}</mat-card-subtitle>
+  <div id="countbuttons">
+	  <button mat-raised-button>{{loginProfile.viewsCount}} views</button>   
+	  <button mat-raised-button color="primary">{{loginProfile.likesCount}} likes</button>   
+	  <button mat-raised-button color="accent">{{loginProfile.followersCount}} followers</button>
+	  <button mat-raised-button color="warn">{{loginProfile.followingsCount}} followings</button>
+  </div>
+</mat-card>
+

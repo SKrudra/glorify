@@ -1,7 +1,5 @@
+<mat-toolbar color="primary"><h1> Glorify </h1></mat-toolbar>
 <div>
-    <div><h1>Welcome to Glorify Dashboard  <a [title]="userProfile.fname + ' details'" [routerLink]="['/editProfile', userProfile.username]">{{userProfile.fname}} {{userProfile.lname}}</a></h1><img src="assets/profile.jpg"  id ="profilePic"> </div>
-    <app-search></app-search>
-    <app-comments></app-comments>
+    <app-profile></app-profile>
     <router-outlet></router-outlet>
-    {{securityContext.userId}}
 </div>
