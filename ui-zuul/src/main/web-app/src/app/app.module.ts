@@ -10,46 +10,21 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CommentsComponent } from './comments/comments.component';
-import { SearchComponent } from './search/search.component';
-import { BasicLayoutComponent } from './basic-layout/basic-layout.component';
 import { RegisterComponent } from './register/register.component';
-import { ResponceMessageComponent } from './responce-message/responce-message.component';
-import { UserProfile } from './userprofile';
-import {UserService} from './services/user/user.service';
-import {
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatRippleModule
-} from '@angular/material';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { UserSearchComponent } from './user-search/user-search.component';
-import { EditprofileComponent } from './editprofile/editprofile.component';
-import { WritecommentComponent } from './writecomment/writecomment.component';
+    
 import { AuthGuard } from './auth-guards/auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   exports: [
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRippleModule,
-    MatAutocompleteModule
   ],
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    CommentsComponent,
-    SearchComponent,
-    BasicLayoutComponent,
     RegisterComponent,
-    ResponceMessageComponent,
-    UserSearchComponent,
-    EditprofileComponent,
-    WritecommentComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +33,9 @@ import { AuthGuard } from './auth-guards/auth.guard';
     NoopAnimationsModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatAutocompleteModule,
     HttpClientModule
   ],
-  providers: [UserService,UserProfile, AuthGuard],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

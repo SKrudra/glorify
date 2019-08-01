@@ -31,6 +31,10 @@ export class AuthService {
     return !!this.securityContext.userId;   
   }
     
+  getLoggedInUserId(): number {
+    return this.isLoggedIn() ? this.securityContext.userId : -1;    
+  }
+    
    /**
      * Handle Http operation that failed.
      * Let the app continue.
