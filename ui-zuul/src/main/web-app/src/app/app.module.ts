@@ -27,6 +27,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { WritecommentComponent } from './writecomment/writecomment.component';
+import { AuthGuard } from './auth-guards/auth.guard';
 
 
 @NgModule({
@@ -60,7 +61,7 @@ import { WritecommentComponent } from './writecomment/writecomment.component';
     MatAutocompleteModule,
     HttpClientModule
   ],
-  providers: [UserService,UserProfile],
+  providers: [UserService,UserProfile, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -27,6 +27,10 @@ export class AuthService {
     );
   }
     
+  isLoggedIn() : Boolean {
+    return !!this.securityContext.userId;   
+  }
+    
    /**
      * Handle Http operation that failed.
      * Let the app continue.
