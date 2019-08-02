@@ -12,7 +12,6 @@ import com.glorify.profile.service.ProfileService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/profile")
 public class ProfileController {
 	
 	@Autowired
