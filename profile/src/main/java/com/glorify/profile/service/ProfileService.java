@@ -1,8 +1,10 @@
 package com.glorify.profile.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.glorify.profile.entity.Profile;
@@ -19,6 +21,10 @@ public class ProfileService {
 		if(opProfile.isPresent()) {
 			return opProfile.get();
 		} else return null;
+	}
+	
+	public List<Profile> searchProfiles(String keyword) {
+		return profileRepository.getProfilesFromKeyword(keyword, PageRequest.of(0, 5));
 	}
 	
 }
