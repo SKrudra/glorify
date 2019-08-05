@@ -24,7 +24,8 @@ export class AuthService {
     return this.http.post<number>(url,form.value).pipe(
       tap(sc => {
           if (sc != null) {
-          this.securityContext.userId = sc;
+              this.securityContext = new SecurityContext();
+              this.securityContext.userId = sc;
         }
       }),
       catchError(this.handleError('authenticate', null))
@@ -32,7 +33,7 @@ export class AuthService {
   }
     
   isLoggedIn() : Boolean {
-    return !!this.securityContext.userId;   
+    return this.securityContext ? !!this.securityContext.userId : false;   
   }
     
   getLoggedInUserId(): number {
