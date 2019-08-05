@@ -21,5 +21,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.securityContext = this.authService.securityContext;
   }
-
+    
+  myLogout() {
+    this.authService.logout();    
+  }
+    
 }

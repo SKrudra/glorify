@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { SecurityContext } from '../models/securityContext';
-import { catchError, tap} from 'rxjs/operators';
-import { Observable, of} from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {FormGroup} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ export class AuthService {
     
   securityContext: SecurityContext;
     
-  constructor(private http:HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private router: Router
+      ) {
     this.securityContext = new SecurityContext();
   }
     
@@ -33,6 +37,11 @@ export class AuthService {
     
   getLoggedInUserId(): number {
     return this.isLoggedIn() ? this.securityContext.userId : -1;    
+  }
+    
+  logout() {
+    this.securityContext = null;
+    this.router.navigate(['login']);
   }
     
    /**
