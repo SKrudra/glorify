@@ -1,5 +1,7 @@
 package com.glorify.profile.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +14,6 @@ import com.glorify.profile.service.ProfileService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/profile")
 public class ProfileController {
 	
 	@Autowired
@@ -23,6 +24,8 @@ public class ProfileController {
 		return profileService.getProfile(userId);
 	}
 	
-	
-	
+	@GetMapping(value="/getprofilesfromkeyword/{keyword}")
+	public List<Profile> getProfilesFromKeyword(@PathVariable String keyword) {
+		return profileService.searchProfiles(keyword);
+	}
 }
