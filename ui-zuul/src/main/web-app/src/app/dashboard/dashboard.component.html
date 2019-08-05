@@ -1,4 +1,8 @@
-<mat-toolbar color="primary"><h1> Glorify </h1></mat-toolbar>
+<mat-toolbar color="primary">
+	<h1> Glorify </h1>
+	<span style="float:right;margin-right:10px;"><button mat-flat-button (click)="myLogout()" >Logout</button></span>
+</mat-toolbar>
+
 <div class="wrapper">
     <app-profile></app-profile>
     <app-search></app-search>
