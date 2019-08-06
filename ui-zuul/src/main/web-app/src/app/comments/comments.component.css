@@ -1,0 +1,8 @@
+mat-card {
+	margin: 20px;
+}
+
+#scrollDiv {
+	overflow: scroll;
+	height:220px;
+}
