@@ -12,9 +12,9 @@ import com.microservice.comments.repository.CommentsRepository;
 public class CommentsService {
 	
 	@Autowired
-	CommentsRepository commentsRepository;
+	private CommentsRepository commentsRepository;
 	
-	public List<Comment> getComments(Long id) {
+	public List<Comment> getAllCommentsOn(Long id) {
 		return commentsRepository.findByCommentedOn(id);
 	}
 	

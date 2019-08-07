@@ -9,5 +9,5 @@ import com.microservice.comments.entity.Comment;
 
 @Repository
 public interface CommentsRepository extends JpaRepository<Comment, Long> {
-	public List<Comment> findByCommentedOn(Long id);
+	List<Comment> findByCommentedOn(Long id);
 }

@@ -1,0 +1,10 @@
+<mat-card>
+<mat-tab-group>
+  <mat-tab label="Public">
+  	<div id="scrollDiv">
+  		<p *ngFor = "let comment of comments">{{comment.description}}</p>
+  	</div>
+  </mat-tab>
+  <mat-tab label="Private"> Content 2 </mat-tab>
+</mat-tab-group>
+</mat-card>

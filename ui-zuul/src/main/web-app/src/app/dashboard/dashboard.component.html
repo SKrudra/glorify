@@ -1,10 +1,12 @@
 <mat-toolbar color="primary">
 	<h1> Glorify </h1>
-	<span style="float:right;margin-right:10px;"><button mat-flat-button (click)="myLogout()" >Logout</button></span>
+	<span class="spacer"></span>
+	<span style="margin-right:10px;"><button mat-flat-button (click)="myLogout()" >Logout</button></span>
 </mat-toolbar>
 
 <div class="wrapper">
     <app-profile></app-profile>
     <app-search></app-search>
+    <app-comments></app-comments>
     <router-outlet></router-outlet>
 </div>
