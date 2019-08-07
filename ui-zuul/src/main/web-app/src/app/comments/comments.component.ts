@@ -13,27 +13,46 @@ export class CommentsComponent implements OnInit {
   constructor(
     private commentService: CommentService,
     private authService: AuthService,
-  ) { }
+  ) { 
+    this.myComment.id = 99;
+    this.myComment.description = 'Yahoo';
+    this.myComment.commentedBy = 4;
+      this.myComment.commentedOn = 1;
+      this.myComment.isPrivate = false;
+      this.myComment.parentId = null;
+      this.myComment.upvotes = 1;
+      this.myComment.downvotes = 2;
+  }
     
     comments: Comment[];
+    
+    myComment = new Comment();
 
   ngOnInit() {
       const userId = this.authService.getLoggedInUserId();
       this.commentService.getAllCommentsOnUser(userId).subscribe(
         data => {
+            let self = this;
             this.comments = data;
             let element = document.getElementById("scrollDiv"); 
             element.addEventListener('scroll', function(event)
             {
                 let element = document.getElementById("scrollDiv"); 
-                if (element.scrollHeight - element.scrollTop >=0)
+                console.log(Math.floor(element.scrollHeight - element.scrollTop- element.clientHeight));
+                if (Math.floor(element.scrollHeight - element.scrollTop - element.clientHeight) <=0) //see glorify doc -> learnings -> infinite scroll
                 {
-                    console.log(Math.floor(element.scrollHeight - element.scrollTop- element.clientHeight));
+                    //console.log(Math.floor(element.scrollHeight - element.scrollTop- element.clientHeight));
+                    console.log('scroll');
+                    self.getAllCommentsOnUser();
                 }
             });
         }
-      );
-      
+      )      
+  }
+  
+  getAllCommentsOnUser(): void {
+    this.comments.push(this.myComment);  
+    console.log('scrolled');    
   }
 
 }
