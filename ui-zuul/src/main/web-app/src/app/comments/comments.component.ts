@@ -38,11 +38,9 @@ export class CommentsComponent implements OnInit {
             element.addEventListener('scroll', function(event)
             {
                 let element = document.getElementById("scrollDiv"); 
-                console.log(Math.floor(element.scrollHeight - element.scrollTop- element.clientHeight));
+                //console.log(Math.floor(element.scrollHeight - element.scrollTop- element.clientHeight));
                 if (Math.floor(element.scrollHeight - element.scrollTop - element.clientHeight) <=0) //see glorify doc -> learnings -> infinite scroll
                 {
-                    //console.log(Math.floor(element.scrollHeight - element.scrollTop- element.clientHeight));
-                    console.log('scroll');
                     self.getAllCommentsOnUser();
                 }
             });
@@ -51,8 +49,7 @@ export class CommentsComponent implements OnInit {
   }
   
   getAllCommentsOnUser(): void {
-    this.comments.push(this.myComment);  
-    console.log('scrolled');    
+    this.comments.push(this.myComment);      
   }
 
 }
