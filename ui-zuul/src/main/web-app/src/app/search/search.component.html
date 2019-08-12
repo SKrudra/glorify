@@ -4,7 +4,7 @@
 	    <input matInput placeholder="Search..." [matAutocomplete]="auto" [formControl]="searchName">
 	    <mat-autocomplete #auto="matAutocomplete">
 	      <mat-option *ngFor="let profile of profiles | async" [value]="profile.firstName">
-	        {{profile.firstName}}
+	        <a href="#">{{profile.firstName}}</a>
 	      </mat-option>
 	    </mat-autocomplete>
 	  </mat-form-field>

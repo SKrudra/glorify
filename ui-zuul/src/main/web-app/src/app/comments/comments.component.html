@@ -2,7 +2,9 @@
 <mat-tab-group>
   <mat-tab label="Public">
   	<div id="scrollDiv">
-  		<p *ngFor = "let comment of comments">{{comment.description}}</p>
+  		<div *ngFor = "let comment of comments">
+  			<p>{{comment.description}}</p>
+  		</div>
   	</div>
   </mat-tab>
   <mat-tab label="Private"> Content 2 </mat-tab>

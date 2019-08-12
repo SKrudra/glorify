@@ -16,6 +16,7 @@ import { AuthGuard } from './auth-guards/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchComponent } from './search/search.component';
 import { CommentsComponent } from './comments/comments.component';
+import { WritecommentComponent } from './writecomment/writecomment.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CommentsComponent } from './comments/comments.component';
     RegisterComponent,
     ProfileComponent,
     SearchComponent,
-    CommentsComponent
+    CommentsComponent,
+    WritecommentComponent
   ],
   imports: [
     BrowserModule,
