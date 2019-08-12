@@ -18,4 +18,8 @@ public class CommentsService {
 		return commentsRepository.findByCommentedOn(id);
 	}
 	
+	public void writeComment(Comment comment) {
+		commentsRepository.save(comment);
+	}
+	
 }
