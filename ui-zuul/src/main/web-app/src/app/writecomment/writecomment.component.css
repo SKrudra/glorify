@@ -7,6 +7,10 @@ mat-card {
 }
 
 .minwidthbutton {
-	width:50%;
-	
+	width:50%;	
+}
+
+.maxheighttextarea {
+	resize: vertical; 
+	max-height: 150px;
 }

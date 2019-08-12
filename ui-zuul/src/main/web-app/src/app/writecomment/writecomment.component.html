@@ -1,9 +1,9 @@
 <mat-card>
 <form>
 	<mat-form-field class="minwidthfield">
-		<textarea matInput placeholder="Write Comment"></textarea>
+		<textarea class="maxheighttextarea" matInput placeholder="Write Comment" [formControl]="myComment" maxlength=140></textarea>
 	</mat-form-field>
-	<button mat-raised-button color="warn" class="minwidthbutton">Write Publicly</button>
-	<button mat-raised-button color="accent" class="minwidthbutton">Write Privately</button>
+	<button mat-raised-button color="warn" class="minwidthbutton" (click)="submit(false)">Write Publicly</button>
+	<button mat-raised-button color="accent" class="minwidthbutton" (click)="submit(true)">Write Privately</button>
 </form>
 </mat-card>
