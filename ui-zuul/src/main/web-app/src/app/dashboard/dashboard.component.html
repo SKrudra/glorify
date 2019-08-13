@@ -7,7 +7,7 @@
 <div class="wrapper">
     <app-profile></app-profile>
     <app-search></app-search>
-    <app-writecomment></app-writecomment>
+    <app-writecomment *ngIf="!isHomepage"></app-writecomment>
     <app-comments></app-comments>
     <router-outlet></router-outlet>
 </div>

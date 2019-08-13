@@ -10,6 +10,8 @@ import { SearchService } from './../services/search.service';
 })
 export class ProfileComponent implements OnInit {
 
+  loginProfile: Profile;  
+    
   constructor(
     private profileService: ProfileService,
     private searchService: SearchService,
@@ -20,11 +22,9 @@ export class ProfileComponent implements OnInit {
         }
     );
   }
-
-  loginProfile: Profile;  
+ 
     
-  ngOnInit() {
-      
+  ngOnInit() {      
       this.searchService.searched.subscribe(userId => {
             this.profileService.getProfile(userId).subscribe(
                 data => {

@@ -10,6 +10,7 @@ export class SearchService {
   searched: Subject<number> = new Subject<number>();
   
   constructor() {
+    this.searchedUserId = -1;  //Not searched yet
     this.searched.subscribe( userId => {
         this.searchedUserId = userId;
         console.log(userId);    
@@ -18,6 +19,10 @@ export class SearchService {
   
   changeSearched(userId: number): void {
       this.searched.next(userId);    
+  }
+    
+  resetSearched(): void {
+    this.searchedUserId = -1;    
   }
     
 }
