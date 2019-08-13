@@ -10,7 +10,6 @@ import { SearchService } from './../services/search.service';
 })
 export class DashboardComponent implements OnInit {
    
-  securityContext: SecurityContext;
   isHomepage: boolean;  
     
   constructor(
@@ -21,14 +20,17 @@ export class DashboardComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.securityContext = this.authService.securityContext;
     this.searchService.searched.subscribe(userId => {
-        if(userId!=-1) this.isHomepage = false;                
+        if(userId!==this.authService.getLoggedInUserId()) this.isHomepage = false;                
     });
   }
     
   myLogout() {
     this.authService.logout();    
   }
-    
+  
+  home() {
+    this.isHomepage = true;  
+    this.searchService.resetSearched();     
+  }
 }

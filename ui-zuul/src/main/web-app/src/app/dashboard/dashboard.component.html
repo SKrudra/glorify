@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
 	<h1> Glorify </h1>
+	<button mat-mini-fab *ngIf="!isHomepage" (click)="home()"><mat-icon>home</mat-icon></button>
 	<span class="spacer"></span>
 	<span style="margin-right:10px;"><button mat-flat-button (click)="myLogout()" >Logout</button></span>
 </mat-toolbar>
