@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
 import { CommentService } from './../services/comment.service';
+import { SearchService } from './../services/search.service';
 
 @Component({
   selector: 'app-writecomment',
@@ -11,6 +12,7 @@ export class WritecommentComponent implements OnInit {
 
   constructor(
     private commentService: CommentService,
+    private searchService: SearchService,
   ) { }
     
   myComment = new FormControl();  
@@ -20,7 +22,8 @@ export class WritecommentComponent implements OnInit {
   }
   
   submit(isPrivate: boolean) {
-        this.commentService.writeComment(this.myComment.value,isPrivate,1).subscribe(
+        this.commentService.writeComment(this.myComment.value,isPrivate,this.searchService.searchedUserId).subscribe(
+            res => {this.commentService.addNewComment(this.myComment.value,isPrivate,this.searchService.searchedUserId);},
             error => console.log("Error: ",error)
         );
   }

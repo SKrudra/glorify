@@ -27,6 +27,9 @@ export class CommentsComponent implements OnInit {
   ngOnInit() {
       this.searchService.searched.subscribe(userId => {
             this.getComments(userId);
+      });
+      this.commentService.newCommentObserver.subscribe(newComment => {
+        this.comments.push(newComment);    
       });      
   }
     
