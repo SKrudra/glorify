@@ -14,14 +14,20 @@ export class ProfileService {
     private http: HttpClient
   ) { }
     
+    
     private zuulUrl = 'http://localhost:8001/api/profile/';
     
-    getProfile() : Observable<Profile> {
-        const userId =  this.authService.getLoggedInUserId();
+    getProfile(userId: number) : Observable<Profile> {
         return this.http.get<Profile>(this.zuulUrl + 'getprofile/' + `${userId}`);
     }
     
     getProfilesFromKeyword(keyword: string): Observable<Profile[]> {
             return this.http.get<Profile[]>(this.zuulUrl + 'getprofilesfromkeyword/' + `${keyword}`);
     }
+    
+    getLoggedInProfile() : Observable<Profile> {
+        const userId =  this.authService.getLoggedInUserId();
+        return this.getProfile(userId);
+    }
+
 }

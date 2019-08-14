@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
 	<h1> Glorify </h1>
+	<button mat-mini-fab *ngIf="!isHomepage" (click)="home()"><mat-icon>home</mat-icon></button>
 	<span class="spacer"></span>
 	<span style="margin-right:10px;"><button mat-flat-button (click)="myLogout()" >Logout</button></span>
 </mat-toolbar>
@@ -7,7 +8,7 @@
 <div class="wrapper">
     <app-profile></app-profile>
     <app-search></app-search>
-    <app-writecomment></app-writecomment>
+    <app-writecomment *ngIf="!isHomepage"></app-writecomment>
     <app-comments></app-comments>
     <router-outlet></router-outlet>
 </div>

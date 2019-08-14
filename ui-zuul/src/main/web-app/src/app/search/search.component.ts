@@ -4,6 +4,7 @@ import { ProfileService } from './../services/profile.service';
 import { Profile } from './../models/profile';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap, tap, filter } from 'rxjs/operators';
+import { SearchService } from './../services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -14,6 +15,7 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
+    private searchService: SearchService,
   ) { }
     
   searchName = new FormControl();
@@ -27,6 +29,10 @@ export class SearchComponent implements OnInit {
                                 switchMap((name) => 
                                     this.profileService.getProfilesFromKeyword(name)
                                 ));
-  }  
+  }
+    
+  search(profile: Profile): void {
+      this.searchService.changeSearched(profile.id);
+  }
 
 }
