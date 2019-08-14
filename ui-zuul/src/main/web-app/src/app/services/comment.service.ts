@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { Comment } from './../models/comment';
 import { AuthService } from './auth.service'; 
 
@@ -12,10 +12,14 @@ export class CommentService {
   constructor(
     private http: HttpClient,
     private authService: AuthService,
-  ) { }
+  ) {
+    this.newCommentObserver.subscribe(comment => this.newComment = comment);    
+  }
   
   private zuulUrl = 'http://localhost:8001/api/comments/';
-  
+  newComment: Comment;
+  newCommentObserver: Subject<Comment> = new Subject<Comment>();
+    
   createComment(comment: string, isPrivate: boolean, userId: number): Comment {
     let newComment = new Comment();
     newComment.description = comment;
@@ -35,4 +39,9 @@ export class CommentService {
     let newComment = this.createComment(comment,isPrivate,userId);
     return this.http.post<boolean>(this.zuulUrl + 'writecomment', newComment);    
   }
+  
+  addNewComment(comment: string, isPrivate: boolean, userId: number) {
+    let newComment = this.createComment(comment,isPrivate,userId);
+    this.newCommentObserver.next(newComment);  
+  }  
 }

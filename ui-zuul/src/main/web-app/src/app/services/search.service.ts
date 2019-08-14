@@ -15,8 +15,7 @@ export class SearchService {
   ) {
     this.searchedUserId = this.authService.getLoggedInUserId();  //Not searched yet
     this.searched.subscribe( userId => {
-        this.searchedUserId = userId;
-        console.log(userId);    
+        this.searchedUserId = userId;    
     } );    
   }  
   
