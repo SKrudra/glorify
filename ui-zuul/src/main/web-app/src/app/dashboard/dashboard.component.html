@@ -1,14 +1,40 @@
-<mat-toolbar color="primary">
-	<h1> Glorify </h1>
+<mat-toolbar class="toolbar">
+	<span>
+		<button mat-icon-button (click)="sidenav.toggle()" matTooltip="Toggle Employee Details">
+			<mat-icon >menu</mat-icon>
+        </button>
+	</span>
+
+  <h1> Glorify </h1>
 	<button mat-mini-fab *ngIf="!isHomepage" (click)="home()"><mat-icon>home</mat-icon></button>
 	<span class="spacer"></span>
+  <app-search></app-search>
 	<span style="margin-right:10px;"><button mat-flat-button (click)="myLogout()" >Logout</button></span>
 </mat-toolbar>
 
-<div class="wrapper">
+<!--<div class="wrapper">
     <app-profile></app-profile>
     <app-search></app-search>
     <app-writecomment *ngIf="!isHomepage"></app-writecomment>
     <app-comments></app-comments>
     <router-outlet></router-outlet>
 </div>
+-->
+
+<mat-sidenav-container class = "layout-container" >
+
+  <mat-sidenav mode="side" #sidenav class="layout-sidenav" style="background-color:#F5F5F5;padding:10px;" [mode]='over'>
+    <app-profile></app-profile>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-card *ngIf="!isHomepage" style="height:150px;margin:15px;background-color: white; color:black;">
+      <h1>Manish Sharma</h1>
+      <button mat-raised-button>Follow</button>
+    </mat-card>
+    <app-writecomment *ngIf="!isHomepage"></app-writecomment>
+    <app-comments></app-comments>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

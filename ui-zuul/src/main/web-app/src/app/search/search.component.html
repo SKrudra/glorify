@@ -1,7 +1,8 @@
 <mat-card>
 	<form>
 	  <mat-form-field style="width:100%;">
-	    <input matInput placeholder="Search..." [matAutocomplete]="auto" [formControl]="searchName">
+      <mat-icon>search</mat-icon>
+	    <input matInput  [matAutocomplete]="auto" [formControl]="searchName">
 	    <mat-autocomplete #auto="matAutocomplete">
 	      <mat-option *ngFor="let profile of profiles | async" [value]="profile.firstName" (click)="search(profile)">
 	        <p>{{profile.firstName}}</p>
