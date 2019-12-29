@@ -43,4 +43,4 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule, 
       MatSidenavModule
   ]
 })
-export class MaterialModules { }
+export class MaterialModules {}
