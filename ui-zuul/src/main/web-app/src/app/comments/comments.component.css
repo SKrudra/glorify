@@ -4,5 +4,31 @@ mat-card {
 
 #scrollDiv {
 	overflow: scroll;
-	height:220px;
+	height:600px;
+}
+
+#myScrollDiv {
+	overflow: scroll;
+	height:550px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
 }

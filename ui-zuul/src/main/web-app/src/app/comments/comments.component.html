@@ -1,5 +1,4 @@
-<mat-card>
-<mat-tab-group>
+<!--<mat-tab-group>
   <mat-tab label="Public">
   	<div id="scrollDiv">
   		<div *ngFor = "let comment of comments">
@@ -8,5 +7,36 @@
   	</div>
   </mat-tab>
   <mat-tab label="Private"> Content 2 </mat-tab>
-</mat-tab-group>
-</mat-card>
+</mat-tab-group>-->
+
+  <div>
+    <div class='row'>
+      <div class='column'>
+        <app-profile></app-profile>
+      </div>
+      <div class='double-column'>
+        <mat-card>
+          <div id="scrollDiv">
+            <div *ngFor = "let comment of comments">
+              <p>{{comment.description}}</p>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class='column'>
+        <mat-card>
+          <mat-tab-group>
+            <mat-tab label="Public">
+              <div id="myScrollDiv">
+                <div *ngFor = "let comment of comments">
+                  <p>{{comment.description}}</p>
+                </div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Private"> Content 2 </mat-tab>
+          </mat-tab-group>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
