@@ -2,7 +2,7 @@ mat-card {
 	margin: 20px;
 }
 
-#countbuttons button {
+.mat-icon-button {
 	margin-right: 20px;
 	margin-bottom: 10px;
 }

@@ -1,11 +1,19 @@
 <mat-card *ngIf="loginProfile">
-  <p style="font-size:48px;margin-bottom:2px;">{{loginProfile.firstName}} {{loginProfile.lastName}} <span style="font-size:20px">Age {{loginProfile.age}}</span></p>
-  <p style="font-size:18px;">{{loginProfile.bio}}</p>
-  <div id="countbuttons">
+  <mat-card-header>
+    <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg">
+    <mat-card-title>{{loginProfile.firstName}} {{loginProfile.lastName}}</mat-card-title>
+    <mat-card-subtitle>{{loginProfile.age}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{loginProfile.bio}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
       <button mat-icon-button matTooltip="Profile views" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.viewsCount}}" matBadgeColor="warn">visibility</mat-icon></button>
 	  <button mat-icon-button matTooltip="Likes" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.likesCount}}" matBadgeColor="warn">thumb_up</mat-icon></button>
 	  <button mat-icon-button (click)="incrementFollowers()" matTooltip="Followers" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.followersCount}}" matBadgeColor="warn">people</mat-icon></button>
 	  <button mat-icon-button matTooltip="Folloing" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.followingsCount}}" matBadgeColor="warn">person</mat-icon></button>
-  </div>
+  </mat-card-actions>
 </mat-card>
 
