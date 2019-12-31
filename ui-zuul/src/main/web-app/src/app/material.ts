@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatTableModule,
         MatSortModule, MatPaginatorModule, MatCardModule, MatSnackBarModule, MatCheckboxModule,
         MatSelectModule, MatAutocompleteModule, MatTabsModule, MatDividerModule, MatIconModule,
-        MatSidenavModule } from '@angular/material';
+        MatSidenavModule, MatBadgeModule, MatTooltipModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -22,7 +22,9 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule, 
       MatTabsModule,
       MatDividerModule,
       MatIconModule,
-      MatSidenavModule
+      MatSidenavModule,
+	  MatBadgeModule,
+      MatTooltipModule
   ],
   exports: [
       MatFormFieldModule,
@@ -40,7 +42,9 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule, 
       MatTabsModule,
       MatDividerModule,
       MatIconModule,
-      MatSidenavModule
+      MatSidenavModule,
+      MatBadgeModule,
+      MatTooltipModule
   ]
 })
 export class MaterialModules {}

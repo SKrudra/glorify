@@ -2,10 +2,10 @@
   <p style="font-size:48px;margin-bottom:2px;">{{loginProfile.firstName}} {{loginProfile.lastName}} <span style="font-size:20px">Age {{loginProfile.age}}</span></p>
   <p style="font-size:18px;">{{loginProfile.bio}}</p>
   <div id="countbuttons">
-	  <button mat-raised-button >{{loginProfile.viewsCount}} views</button>
-	  <button mat-raised-button color="primary">{{loginProfile.likesCount}} likes</button>
-	  <button mat-raised-button color="accent">{{loginProfile.followersCount}} followers</button>
-	  <button mat-raised-button color="warn">{{loginProfile.followingsCount}} followings</button>
+      <button mat-icon-button matTooltip="Profile views" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.viewsCount}}" matBadgeColor="warn">visibility</mat-icon></button>
+	  <button mat-icon-button matTooltip="Likes" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.likesCount}}" matBadgeColor="warn">thumb_up</mat-icon></button>
+	  <button mat-icon-button (click)="incrementFollowers()" matTooltip="Followers" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.followersCount}}" matBadgeColor="warn">people</mat-icon></button>
+	  <button mat-icon-button matTooltip="Folloing" matTooltipPosition="above"><mat-icon matBadge="{{loginProfile.followingsCount}}" matBadgeColor="warn">person</mat-icon></button>
   </div>
 </mat-card>
 
